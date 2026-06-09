@@ -2,10 +2,11 @@
 
 # --- Configuration ---
 # Change this variable to build a different image (e.g., core-image-minimal)
-IMAGE_NAME="core-image-base"
+IMAGE_NAME="core-image-full-cmdline"
+CONF_NAME="local.conf"
 
 # Machine-specific paths
-BUILD_DIR="$HOME/yocto-rpi/build-rpi"
+BUILD_DIR="$HOME/yocto-rpi/"
 MACHINE_DIR="raspberrypi0-2w-64"
 
 # ---------------------
@@ -14,6 +15,15 @@ MACHINE_DIR="raspberrypi0-2w-64"
 CWD=$(pwd)
 echo "Starting build process..."
 echo "Current working directory captured: $CWD"
+
+# 1.5 Move local.conf over to the build dir
+if [ -f "$CONF_NAME" ]; then
+            cp $CONF_NAME $BUILD_DIR/build-rpi/conf/$CONF_NAME
+    else 
+	    echo "Error: Local Configuration not found: $CONF_NAME"
+	    exit 1
+fi
+
 
 # 2. Move to the Yocto build directory
 if [ -d "$BUILD_DIR" ]; then
@@ -28,9 +38,19 @@ fi
 # uncomment the line below and update the path if necessary:
 # source ../oe-init-build-env .
 
+
 # 3. Run bitbake
-source ../poky/oe-init-build-env build-rpi
+unset MACHINE
+source poky/oe-init-build-env build-rpi
+echo "Cleaning Local Build & Sstate Cache for $IMAGE_NAME"
+#bitbake -c cleansstate rpi-config
+bitbake -c cleansstate "$IMAGE_NAME"
 echo "Running bitbake $IMAGE_NAME..."
+
+# bitbake -e $IMAGE_NAME | grep -B 2 -A 2 "qemux86-64"
+
+bitbake -e $IMAGE_NAME | grep ^MACHINE=
+
 bitbake "$IMAGE_NAME"
 
 # Check if the bitbake command succeeded
@@ -47,7 +67,7 @@ fi
 cd "$CWD" || { echo "Error: Could not return to $CWD"; exit 1; }
 
 # Define the source path using the configured variables
-TARGET_IMAGE="$BUILD_DIR/tmp/deploy/images/$MACHINE_DIR/$IMAGE_NAME-$MACHINE_DIR.rootfs.wic.bz2"
+TARGET_IMAGE="$BUILD_DIR/build-rpi/tmp/deploy/images/$MACHINE_DIR/$IMAGE_NAME-$MACHINE_DIR.rootfs.wic.bz2"
 LOCAL_FILENAME="$IMAGE_NAME-$MACHINE_DIR.rootfs.wic.bz2"
 DECOMPRESSED_WIC="$IMAGE_NAME-$MACHINE_DIR.rootfs.wic"
 
@@ -58,7 +78,7 @@ if [ -f "$DECOMPRESSED_WIC" ]; then
 fi
 
 # 5. Pull the file into the current working directory
-echo "Copying the build image to the current directory..."
+echo "Copying the build image to the current directory ${TARGET_IMAGE}..."
 if [ -f "$TARGET_IMAGE" ]; then
 	    cp "$TARGET_IMAGE" .
 	        echo "Success! Image copied to: $CWD/$(basename "$TARGET_IMAGE")"
