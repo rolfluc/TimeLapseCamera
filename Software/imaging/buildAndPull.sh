@@ -48,6 +48,14 @@ cd "$CWD" || { echo "Error: Could not return to $CWD"; exit 1; }
 
 # Define the source path using the configured variables
 TARGET_IMAGE="$BUILD_DIR/tmp/deploy/images/$MACHINE_DIR/$IMAGE_NAME-$MACHINE_DIR.rootfs.wic.bz2"
+LOCAL_FILENAME="$IMAGE_NAME-$MACHINE_DIR.rootfs.wic.bz2"
+DECOMPRESSED_WIC="$IMAGE_NAME-$MACHINE_DIR.rootfs.wic"
+
+# 4.5 Clean up existing .wic file if it exists
+if [ -f "$DECOMPRESSED_WIC" ]; then
+	    echo "Found existing image: $DECOMPRESSED_WIC. Deleting it..."
+	        rm "$DECOMPRESSED_WIC"
+fi
 
 # 5. Pull the file into the current working directory
 echo "Copying the build image to the current directory..."
@@ -57,5 +65,16 @@ if [ -f "$TARGET_IMAGE" ]; then
 	else
 		    echo "Error: Expected output file not found at:"
 		        echo "$TARGET_IMAGE"
+			    exit 1
+fi
+
+# 6. Decompress the copied .bz2 file
+echo "Decompressing $LOCAL_FILENAME..."
+if [ -f "$LOCAL_FILENAME" ]; then
+	    # -d: decompress, -k: keep original .bz2 file
+	        bzip2 -dk "$LOCAL_FILENAME"
+		    echo "Decompression complete. Your new .wic file is ready in $CWD"
+	    else
+		        echo "Error: Copied file not found for decompression."
 			    exit 1
 fi
