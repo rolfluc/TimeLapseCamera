@@ -1,0 +1,247 @@
+(footprint "BAT_BCAAPC"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at -25.555 -9.889 0)
+		(layer "F.SilkS")
+		(uuid "6879f010-8e3c-45b0-92ae-dfa1d4a3df0e")
+		(effects
+			(font
+				(size 1.4 1.4)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "BAT_BCAAPC"
+		(at -21.11 10.111 0)
+		(layer "F.Fab")
+		(uuid "c582bee9-4716-47d6-86d8-bb9041e7ea78")
+		(effects
+			(font
+				(size 1.4 1.4)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "db181076-31bd-4620-b12e-403feb6196d1")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "0004ef33-71d7-45b8-857f-7a87f43814ae")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_line
+		(start -29.85 -8.2)
+		(end -29.85 8.2)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "780d4272-f656-4c23-a0fa-c4fa3d7361b6")
+	)
+	(fp_line
+		(start -29.85 8.2)
+		(end 29.85 8.2)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "26a7ce29-1d07-4d23-b842-691863a13524")
+	)
+	(fp_line
+		(start 29.85 -8.2)
+		(end -29.85 -8.2)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "53da9cef-2dda-48c6-b5f9-cd48a859d29a")
+	)
+	(fp_line
+		(start 29.85 8.2)
+		(end 29.85 -8.2)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "e4cbaa99-b3cb-4277-9c0a-79b71e8ed7fa")
+	)
+	(fp_line
+		(start -30.1 -8.45)
+		(end -30.1 8.45)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "ea4ee161-9b0e-4765-9c11-977a4514a97e")
+	)
+	(fp_line
+		(start -30.1 8.45)
+		(end 30.1 8.45)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "7e6bbbff-cfec-4de8-83bc-b832b2111e19")
+	)
+	(fp_line
+		(start 30.1 -8.45)
+		(end -30.1 -8.45)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "9958c53a-6fc1-4a23-8053-a083bd0f8ba0")
+	)
+	(fp_line
+		(start 30.1 8.45)
+		(end 30.1 -8.45)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "e0b81df9-f278-4c84-b60c-6d6328701da3")
+	)
+	(fp_line
+		(start -29.85 -8.2)
+		(end -29.85 8.2)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "ea806180-eefa-42bb-801b-bb55ded13355")
+	)
+	(fp_line
+		(start -29.85 8.2)
+		(end 29.85 8.2)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "1fd3018f-ed27-4744-8df7-2b95baa63a0e")
+	)
+	(fp_line
+		(start 29.85 -8.2)
+		(end -29.85 -8.2)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "67afce5f-5123-4918-8d3e-42cd6b682d5c")
+	)
+	(fp_line
+		(start 29.85 8.2)
+		(end 29.85 -8.2)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "436388b9-4d46-4e38-84f8-c68a3cda631e")
+	)
+	(fp_text user "+"
+		(at 30.861 0.889 0)
+		(layer "F.SilkS")
+		(uuid "1c9ffb1e-33e4-4acb-aaec-44632ea4bf13")
+		(effects
+			(font
+				(size 1.4 1.4)
+				(thickness 0.15)
+			)
+		)
+	)
+	(fp_text user "-"
+		(at -31.623 0.762 0)
+		(layer "F.SilkS")
+		(uuid "fd55e172-31a2-4da3-a16c-1e74b39a2ee6")
+		(effects
+			(font
+				(size 1.4 1.4)
+				(thickness 0.15)
+			)
+		)
+	)
+	(fp_text user "+"
+		(at 30.861 0.889 0)
+		(layer "F.Fab")
+		(uuid "4186a859-a45b-4341-a4fe-d1293494bfa2")
+		(effects
+			(font
+				(size 1.4 1.4)
+				(thickness 0.15)
+			)
+		)
+	)
+	(fp_text user "-"
+		(at -31.623 0.762 0)
+		(layer "F.Fab")
+		(uuid "dcc09d4d-934d-447d-8d2b-60d0e880c727")
+		(effects
+			(font
+				(size 1.4 1.4)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" thru_hole circle
+		(at 27.75 0)
+		(size 1.76 1.76)
+		(drill 1.17)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(solder_mask_margin 0.102)
+		(uuid "4c81a84d-bf0a-4273-833e-e299e3fe2eeb")
+	)
+	(pad "2" thru_hole circle
+		(at -27.75 0)
+		(size 1.76 1.76)
+		(drill 1.17)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(solder_mask_margin 0.102)
+		(uuid "febe22be-02fc-480a-88a5-a55989270880")
+	)
+	(embedded_fonts no)
+	(model "C:/Users/rolf0/Documents/arc/TimeLapse/TimeLapseCamera/Electrical/BCAAPC/BCAAPC.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz -90 -0 -0)
+		)
+	)
+)
