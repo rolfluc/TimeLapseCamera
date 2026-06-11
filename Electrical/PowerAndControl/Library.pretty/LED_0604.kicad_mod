@@ -1,0 +1,115 @@
+(footprint "LED_0604"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 1.6 -1.25 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "41a2dda9-ade5-40e6-bdd3-0561a0bee5a5")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "LED_0604"
+		(at 2.05 -0.05 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "16dc0964-dfd4-4563-845d-443738ca801a")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "8e383afd-5674-4a3c-b96c-470920173d36")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "c1b11a2a-7974-4592-9b58-387a724116ff")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_rect
+		(start -0.5 -0.6)
+		(end 2.3 0.6)
+		(stroke
+			(width 0.12)
+			(type default)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "852c3132-0429-4d76-9051-c8d8f33b9d12")
+	)
+	(fp_rect
+		(start 0.3 0.6)
+		(end 1.5 1.07)
+		(stroke
+			(width 0.06)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "89df6b34-3b53-4d30-8c1f-ce1a9f663988")
+	)
+	(fp_circle
+		(center -0.65 0.737868)
+		(end -0.8 0.887868)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.SilkS")
+		(uuid "320b58ed-24c6-4f7d-b666-6d5af751a9f6")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 1 1.95 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "5e1a3b91-6cfc-40b0-a20c-8bad01465823")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd rect
+		(at 0 0 180)
+		(size 0.9 1.1)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "a851e26b-d5f6-417e-bd9a-06e276832707")
+	)
+	(pad "2" smd rect
+		(at 1.8 0 180)
+		(size 0.9 1.1)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "ec31cd76-c2cf-4490-bfe4-31c4c51b8d66")
+	)
+	(embedded_fonts no)
+)
