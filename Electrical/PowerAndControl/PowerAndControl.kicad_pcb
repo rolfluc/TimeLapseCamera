@@ -5734,19 +5734,6 @@
 		(layer "Edge.Cuts")
 		(uuid "da78edeb-ed94-413c-8b77-c724c1ae27c3")
 	)
-	(gr_text "TODO move the USB port maybe"
-		(at 100.6 129.2 0)
-		(layer "F.Cu")
-		(uuid "0621cc77-0b5d-4cb1-b078-3b2634e69d02")
-		(effects
-			(font
-				(size 1.5 1.5)
-				(thickness 0.3)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-	)
 	(segment
 		(start 132.341 122.459)
 		(end 134.2 120.6)
