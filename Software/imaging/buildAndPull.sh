@@ -4,10 +4,15 @@
 # Change this variable to build a different image (e.g., core-image-minimal)
 IMAGE_NAME="core-image-full-cmdline"
 CONF_NAME="local.conf"
+TARGET_NEW_DIR="$HOME/yocto-rpi/meta-timelapse/conf/machine"
 
 # Machine-specific paths
 BUILD_DIR="$HOME/yocto-rpi/"
 MACHINE_DIR="raspberrypi0-2w-64"
+
+# New configs
+NEW_RECIPE_NAME='meta-timelapse'
+NEW_CONF_NAME='raspberrypi0-2w-custom.conf'
 
 # ---------------------
 
@@ -24,6 +29,12 @@ if [ -f "$CONF_NAME" ]; then
 	    exit 1
 fi
 
+#[ ! -d "$TARGET_DIR" ] && dir_missing=true || dir_missing=false
+
+#if [ "$dir_missing" = true ]; then
+#	echo "Bitbake layer ready. Only copying config over."
+#	cp $NEW_CONF_NAME $BUILD_DIR/$NEW_RECIPE_NAME/conf/machine/
+#fi
 
 # 2. Move to the Yocto build directory
 if [ -d "$BUILD_DIR" ]; then
@@ -42,6 +53,19 @@ fi
 # 3. Run bitbake
 unset MACHINE
 source poky/oe-init-build-env build-rpi
+
+# 3.1 Setup the new build env. Should only be run once
+#if [ "$dir_missing" = false ]; then
+#	cd "$BUILD_DIR" || { echo "Error: Failed to change directory to $BUILD_DIR"; exit 1; }
+
+#	bitbake-layers create-layer ../$NEW_RECIPE_NAME
+#	bitbake-layers add-layer ../$NEW_RECIPE_NAME
+#	mkdir -p ../$NEW_RECIPE_NAME/conf/machine/
+#	echo "Created the desired layer. Exiting now. Please rerun to complete"
+#	exit 1;
+#fi
+
+
 echo "Cleaning Local Build & Sstate Cache for $IMAGE_NAME"
 #bitbake -c cleansstate rpi-config
 bitbake -c cleansstate "$IMAGE_NAME"
@@ -49,8 +73,7 @@ echo "Running bitbake $IMAGE_NAME..."
 
 # bitbake -e $IMAGE_NAME | grep -B 2 -A 2 "qemux86-64"
 
-bitbake -e $IMAGE_NAME | grep ^MACHINE=
-
+#MACHINE="raspberrypi0-2w-custom" bitbake "$IMAGE_NAME"
 bitbake "$IMAGE_NAME"
 
 # Check if the bitbake command succeeded
