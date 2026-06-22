@@ -69,6 +69,7 @@ source poky/oe-init-build-env build-rpi
 echo "Cleaning Local Build & Sstate Cache for $IMAGE_NAME"
 #bitbake -c cleansstate rpi-config
 bitbake -c cleansstate "$IMAGE_NAME"
+bitbake -c cleanall virtual/kernel
 echo "Running bitbake $IMAGE_NAME..."
 
 # bitbake -e $IMAGE_NAME | grep -B 2 -A 2 "qemux86-64"
